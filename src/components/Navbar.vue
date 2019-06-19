@@ -14,6 +14,11 @@
                     <router-link :to="{ name: 'profile', params:{ user_id: id}}"> Profile {{id}} </router-link>
                 </li>
             </ul>
+            <button @click="goHome">Home</button>
+            <button @click="goContact">Contact</button>
+            <button @click="goBack">Back</button>
+            <button @click="goForward">Next</button>
+
         </div>
     </div>
 </template>
@@ -23,7 +28,21 @@ export default {
     name:'Navbar',
     data(){
         return{
-            userIds:['1','2','3','4','7']
+            userIds:['1','2','3']
+        }
+    },
+    methods:{
+        goHome(){
+            this.$router.push( {name: 'Home'} )
+        },
+        goContact(){
+            this.$router.push( {name: 'contact'} )
+        },
+        goBack(){
+            this.$router.go( -1 )
+        },
+        goForward(){
+            this.$router.go( 1 )
         }
     }
 }
