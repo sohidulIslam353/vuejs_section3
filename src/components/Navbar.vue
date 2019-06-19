@@ -14,11 +14,10 @@
                     <router-link :to="{ name: 'profile', params:{ user_id: id}}"> Profile {{id}} </router-link>
                 </li>
             </ul>
-            <button @click="goHome">Home</button>
-            <button @click="goContact">Contact</button>
-            <button @click="goBack">Back</button>
-            <button @click="goForward">Next</button>
-
+          <button @click="Contact">Contact</button>
+          <button @click="About">About</button>
+          <button @click="Back">Back</button>
+          <button @click="Forward">Forward</button>
         </div>
     </div>
 </template>
@@ -32,19 +31,20 @@ export default {
         }
     },
     methods:{
-        goHome(){
-            this.$router.push( {name: 'Home'} )
-        },
-        goContact(){
+        Contact(){
             this.$router.push( {name: 'contact'} )
         },
-        goBack(){
-            this.$router.go( -1 )
+        About(){
+            this.$router.push({name: 'About' })
         },
-        goForward(){
-            this.$router.go( 1 )
+         Back(){
+            this.$router.go(-1)
+        },
+         Forward(){
+            this.$router.go(1)
         }
     }
+
 }
 </script>
 
@@ -60,6 +60,10 @@ export default {
     list-style-type: none;
     margin: 0;
     padding: 8px;
+    }
+
+    a.router-link-exact-active{
+        color: green;
     }
 
 </style>
